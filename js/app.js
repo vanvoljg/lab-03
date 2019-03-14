@@ -15,7 +15,8 @@ let currentPage = 1;
 
 //takes Critter data from JSON file
 Critter.load_data = () => {
-//takes in the file path for page 1 and treats it as a variable so we can change it later
+  Critter.all_critters = [];
+  //takes in the file path for page 1 and treats it as a variable so we can change it later
   $.get(`./data/page-${currentPage}.json`, 'json')
     .then(data => {
       data.forEach(element => {
@@ -59,7 +60,18 @@ $('select').on('change', function () {
   if ($selection === 'default') $('section:not(#photo-template)').show();
 })
 
-
+//putting handler on the links for next and previous page
+$('.page-link').on('click', function (){
+  console.log(this);
+  if(this.id === 'next-page'){
+    //ternary operator: if our current page is 2, keep it as 2 when clicking 'next'
+    (currentPage === 2) ? currentPage = 2: currentPage++;
+    Critter.load_data();
+  } else{
+    (currentPage === 1) ? currentPage = 1: currentPage--;
+    Critter.load_data();
+  }
+})
 
 Critter.create_options = function() {
   Critter.options.forEach( (keyword) => {
