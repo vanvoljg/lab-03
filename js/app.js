@@ -45,14 +45,18 @@ Critter.display_all = () =>{
 }
 
 //function to sort critters multiple ways
-Critter.sortByTitle = () =>{
-  return Critter.all_critters.sort( (a, b) =>{
-    return a.title.toUpperCase() > b.title.toUpperCase();
+Critter.sortByTitle = (arr) =>{
+  arr.sort( (a, b) =>{
+    if (a.title.toUpperCase() > b.title.toUpperCase()){
+      return 1;
+    } else if (a.title.toUpperCase() < b.title.toUpperCase()){
+      return -1;
+    } return 0;
   });
 }
 
-Critter.sortByHorns = () =>{
-  return Critter.all_critters.sort( (a, b) =>{
+Critter.sortByHorns = (arr) =>{
+  arr.sort( (a, b) =>{
     return a.horns - b.horns;
   });
 }
@@ -76,9 +80,9 @@ $('select').on('change', function () {
 //callback function that sorts by either number of horns or name of critter
 $('.sort-link').on('click', function(){
   let sortType = this.id.slice(3);
-  if (sortType === 'horns') Critter.sortByHorns();
-  if (sortType === 'title') Critter.sortByTitle();
-  console.log(Critter.all_critters);
+  if (sortType === 'horns') {Critter.sortByHorns(Critter.all_critters);
+  }else if (sortType === 'title') {
+    Critter.sortByTitle(Critter.all_critters);}
   Critter.display_all();
 });
 
