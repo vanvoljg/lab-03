@@ -41,13 +41,13 @@ Estimate of time needed to complete: 30 mins
 
 Start time: 13:08
 
-Finish time: _____
+Finish time: 13:29
 
-Actual time needed to complete: _____
+Actual time needed to complete: 21 mins
 
 
 #feature 4
-Number and name of feature: Feature r, Sorting
+Number and name of feature: Feature 4, Sorting
 
 Driver: Aliya
 
