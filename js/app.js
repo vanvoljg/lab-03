@@ -11,10 +11,11 @@ let Critter = function(horned_creature){
 
 Critter.all_critters = [];
 Critter.options = [];
+let currentPage = 1;
 
 //takes Critter data from JSON file
 Critter.load_data = () => {
-  $.get('./data/page-1.json', 'json')
+  $.get(`./data/page-${currentPage}.json`, 'json')
     .then(data => {
       data.forEach(element => {
         Critter.all_critters.push(new Critter(element));
