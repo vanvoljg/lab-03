@@ -3,18 +3,42 @@
 section {
   border: 1px black solid;
   box-sizing: border-box;
-  margin: 50px;
-  width: 310px;
-  height: 500px;
+  margin: 10px;
+  width: 300px;
+  /* height: 500px; */
+  background-color: paleturquoise
 }
 
 h2, p {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 
 img {
-  width: 300px;
+  width: 298px;
+}
+
+a {
+  text-decoration: none;
+  z-index: 2;
+}
+
+h1 {
+  margin-bottom: 1.5em;
+}
+
+main {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+header {
+  /* display: flex;
+  justify-content: center; */
+  margin-bottom: 1em;
 }
 
 #photo-template {
