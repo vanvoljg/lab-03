@@ -1,7 +1,11 @@
-section {
-float: left;
-}
-
 footer {
   clear: both;
 }
+
+/* header h1, header a {
+  float: left;
+}
+
+header h1 {
+  clear: both;
+} */
