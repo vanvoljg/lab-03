@@ -29,8 +29,14 @@ Critter.load_data = () => {
 
 //render function
 Critter.display_all = () =>{
+  // clears the rendered content in the <main> tag, preparing to replace with new data
+  $('main').html('');
+  $('option:not([value="default"])').remove();
+  Critter.options = [];
   Critter.all_critters.forEach(critter => {
-    critter.render();
+    // finds the main tag and adds the rendered critter, from Handlebars conversion
+    $('main').append(critter.render())
+    // this prevents duplicate options from existing in the filter list
     if(!Critter.options.includes(critter.keyword))
       Critter.options.push(critter.keyword);
   });
@@ -40,17 +46,10 @@ Critter.display_all = () =>{
 
 //logs all critters from JSON file
 Critter.prototype.render = function(){
-  let $template = $('#photo-template').clone();
-  $('main').append($template);
-  $template.removeAttr('id');
-  $template.addClass(this.keyword);
-  let $h2 = $template.find('h2')[0];
-  let $img = $template.find('img')[0];
-  let $p = $template.find('p')[0];
-  $($h2).text(this.title);
-  $img.src = this.image_url;
-  $img.alt = this.keyword;
-  $($p).text(this.description);
+  let $template = $('#photo-template').html();
+  let compiledTemplate = Handlebars.compile($template);
+
+  return compiledTemplate(this);
 }
 
 $('select').on('change', function () {
@@ -62,7 +61,6 @@ $('select').on('change', function () {
 
 //putting handler on the links for next and previous page
 $('.page-link').on('click', function (){
-  console.log(this);
   if(this.id === 'next-page'){
     //ternary operator: if our current page is 2, keep it as 2 when clicking 'next'
     (currentPage === 2) ? currentPage = 2: currentPage++;

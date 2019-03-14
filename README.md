@@ -10,25 +10,25 @@ Estimate of time needed to complete: 45 minutes
 
 Start time: 9:35
 
-Finish time: _____
+Finish time: 10:29
 
-Actual time needed to complete: _____
+Actual time needed to complete: 55 mins
 
 #feature 2
 
-Number and name of feature: ________________________________
+Number and name of feature: Feature 2, Templating
 
-Driver:
+Driver: Jesse
 
-Navigator:
+Navigator: Aliya
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 45 minutes
 
-Start time: _____
+Start time: 10:40
 
-Finish time: _____
+Finish time: 11:30
 
-Actual time needed to complete: _____
+Actual time needed to complete: 50 mins
 
 #feature 3
 Number and name of feature: ________________________________
