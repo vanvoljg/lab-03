@@ -31,15 +31,15 @@ Finish time: 11:30
 Actual time needed to complete: 50 mins
 
 #feature 3
-Number and name of feature: ________________________________
+Number and name of feature: Feature 3, Sorting
 
-Driver:
+Driver: Aliya
 
-Navigator:
+Navigator: Jesse
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 30 minutes
 
-Start time: _____
+Start time: 11:35
 
 Finish time: _____
 
