@@ -44,6 +44,23 @@ Critter.display_all = () =>{
   Critter.create_options();
 }
 
+//function to sort critters multiple ways
+Critter.sortByTitle = (arr) =>{
+  arr.sort( (a, b) =>{
+    if (a.title.toUpperCase() > b.title.toUpperCase()){
+      return 1;
+    } else if (a.title.toUpperCase() < b.title.toUpperCase()){
+      return -1;
+    } return 0;
+  });
+}
+
+Critter.sortByHorns = (arr) =>{
+  arr.sort( (a, b) =>{
+    return a.horns - b.horns;
+  });
+}
+
 //logs all critters from JSON file
 Critter.prototype.render = function(){
   let $template = $('#photo-template').html();
@@ -52,12 +69,22 @@ Critter.prototype.render = function(){
   return compiledTemplate(this);
 }
 
+//This function filters the shown items based on dropdown list selection
 $('select').on('change', function () {
   let $selection = $(this).val();
   $('section').hide();
   $(`.${$selection}`).show();
   if ($selection === 'default') $('section:not(#photo-template)').show();
 })
+
+//callback function that sorts by either number of horns or name of critter
+$('.sort-link').on('click', function(){
+  let sortType = this.id.slice(3);
+  if (sortType === 'horns') {Critter.sortByHorns(Critter.all_critters);
+  }else if (sortType === 'title') {
+    Critter.sortByTitle(Critter.all_critters);}
+  Critter.display_all();
+});
 
 //putting handler on the links for next and previous page
 $('.page-link').on('click', function (){
