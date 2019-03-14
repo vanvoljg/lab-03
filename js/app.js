@@ -29,7 +29,10 @@ Critter.load_data = () => {
 
 //render function
 Critter.display_all = () =>{
+  // clears the rendered content in the <main> tag, preparing to replace with new data
   $('main').html('');
+  $('option:not([value="default"])').remove();
+  Critter.options = [];
   Critter.all_critters.forEach(critter => {
     // finds the main tag and adds the rendered critter, from Handlebars conversion
     $('main').append(critter.render())
@@ -58,7 +61,6 @@ $('select').on('change', function () {
 
 //putting handler on the links for next and previous page
 $('.page-link').on('click', function (){
-  console.log(this);
   if(this.id === 'next-page'){
     //ternary operator: if our current page is 2, keep it as 2 when clicking 'next'
     (currentPage === 2) ? currentPage = 2: currentPage++;
