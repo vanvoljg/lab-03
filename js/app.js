@@ -44,6 +44,19 @@ Critter.display_all = () =>{
   Critter.create_options();
 }
 
+//function to sort critters multiple ways
+Critter.sortByName = () =>{
+  Critter.all_critters.sort( (a, b) =>{
+    return a.title.toUpperCase() > b.title.toUpperCase();
+  });
+}
+
+Critter.sortByHorns = () =>{
+  Critter.all_critters.sort( (a, b) =>{
+    return a.horns - b.horns;
+  });
+}
+
 //logs all critters from JSON file
 Critter.prototype.render = function(){
   let $template = $('#photo-template').html();
